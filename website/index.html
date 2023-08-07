@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Enhancer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Breast Image Segmentation</h1>
+    </header>
+    <nav id="nav_bar">
+        <ul >
+            <li id="nav_item"><a href="index.html">Home</a></li>
+            <li id="nav_item"><a href="about.html">About</a></li>
+            <li id="nav_item"><a href="https://github.com/pratiklaudari/Breast-cancer-segmentation-using-Attention-Unet"><img src="gh-logo.png" style="height: 32px;"></a></li>
+        </ul>
+
+    </nav>
+    <main>
+        <section class="hero">
+            <h2>Upload your ultrasound</h2>
+            <p>and our ai algorithm will segment the Image</p>
+            <form action="#" method="POST" enctype="multipart/form-data">
+                <input type="file" name="photo" id="photo" accept="image/*" required>
+                <button type="submit">Upload Photo</button>
+            </form>
+        </section>
+        
+    </main>
+    <section class="slideshow">
+        <!-- Slideshow will be added dynamically by JavaScript -->
+        <img class="center">
+        <img class="center">
+        <img class="center">
+    </section>
+    <script src="script.js"></script>
+    <footer>
+        <p>&copy; THIS IS A FOOTER.</p>
+    </footer>
+</body>
+</html>

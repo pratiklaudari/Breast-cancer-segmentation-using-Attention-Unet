@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 0.3rem;
+    text-align: center;
+}
+
+#nav_item{
+    display: inline;
+    padding: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    color: black;
+}
+#nav_item:hover{
+    display: inline;
+    padding: auto;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    color: rgb(136, 133, 133);
+}
+#nav_bar{
+    position: fixed;
+    left: 0px;
+    width:100%;
+    /* From https://css.glass */
+    background: rgba(33,33,33, 0.42);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(106, 198, 208, 0.62);
+}
+a:link {
+    color: #fff;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: #fff;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #000;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+main {
+    padding: 2rem;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-top: 30px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+form {
+    margin-top: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+footer {
+    position: fixed;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    bottom: 0px;
+    width: 100%;
+}
+.about{
+    padding-top: 20px;
+}
+.slideshow{
+    position: fixed;
+}
+@media screen and (max-width: 600px) {
+    .center{
+        display: block;
+        margin-left: 60vw;
+        width: 300px;
+    }
+ }
+ @media screen and (min-width: 600px) {
+    .center{
+        display: block;
+        margin-left: 35vw;
+        width: 300px;
+    }
+ }
