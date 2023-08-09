@@ -102,17 +102,10 @@ footer {
 .slideshow{
     position: fixed;
 }
-@media screen and (max-width: 600px) {
-    .center{
+
+ .center{
         display: block;
-        margin-left: 60vw;
-        width: 300px;
+        margin-left: 40vw;
+        width: 400px;
     }
- }
- @media screen and (min-width: 600px) {
-    .center{
-        display: block;
-        margin-left: 35vw;
-        width: 300px;
-    }
- }
+
