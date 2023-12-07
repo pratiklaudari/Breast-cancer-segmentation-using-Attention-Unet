@@ -23,10 +23,11 @@
         <section class="hero">
             <h2>Upload your ultrasound</h2>
             <p>and our ai algorithm will segment the Image</p>
-            <form action="#" method="POST" enctype="multipart/form-data">
-                <input type="file" name="photo" id="photo" accept="image/*" required>
-                <button type="submit">Upload Photo</button>
-            </form>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                Select image to upload:
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Upload Image" name="submit">
+              </form>
         </section>
         
     </main>
