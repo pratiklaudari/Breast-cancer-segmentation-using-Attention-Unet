@@ -1,5 +1,6 @@
 from keras.preprocessing import image
 import numpy as np
+import PIL
 
 def normalize_image(image_path):
   # Load image
@@ -16,11 +17,11 @@ def normalize_image(image_path):
 
 def save_image(image_array, output_path):
   # Convert the image array back to PIL image format
-  img = image.from_array(image_array)
+  img = image.array_to_img(image_array)
 
   # Save the image to the desired path
   img.save(output_path)
 
 # Example usage
-normalized_image = normalize_image("path/to/your/image.jpg")
-save_image(normalized_image, "path/to/save/normalized_image.jpg")
+normalized_image = normalize_image("C:/major/Breast-cancer-segmentation-using-Attention-Unet/images/normal/normal (1).png")
+save_image(normalized_image, "C:/Users/sapko/OneDrive/Pictures/example.png")
