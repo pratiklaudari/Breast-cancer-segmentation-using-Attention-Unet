@@ -1,28 +1,39 @@
-import torchvision.datasets as datasets
-from torchvision import transforms
-import torch
-import cv2
-from glob import glob as gb
-from keras.layers import Conv2D,BatchNormalization,Activation,MaxPool2D,Conv2DTranspose,Concatenate
-data_dir = ''#get normalised dataset
-dataset=gb(data_dir)
+from keras import layers
+from keras.preprocessing import image
+import numpy as np
 
-def convolution_block(image,nfilter):
-    x=Conv2D(nfilter,3,padding="same")(image)
-    x=BatchNormalization()(x)
-    x= Activation('relu')(x)
 
-    x=Conv2D(nfilter,3,padding="same")(x)
-    x=BatchNormalization()(x)
-    x= Activation('relu')(x)
+def encoder_block(inputs, num_filters, use_batch_norm=True, pool_size=(2, 2)):
+  x = inputs
 
-    return x
-def encoder_block(input,nfilter):
-    x=convolution_block(input,nfilter)
-    p=MaxPool2D(2,2)(x)
-    return x,p
+  # Two convolutional layers with ReLU activation
+  x = layers.Conv2D(num_filters, kernel_size=3, padding="same", activation="relu")(x)
+  x = layers.Conv2D(num_filters, kernel_size=3, padding="same", activation="relu")(x)
 
-for image in dataset:
-    img=cv2.imread(image)
-    Tensor_img=transforms.Compose([transforms.ToTensor()])
-    image_tensor=Tensor_img(img)
+  # Optional batch normalization
+  if use_batch_norm:
+    x = layers.BatchNormalization()(x)
+
+  # Max pooling
+  skip_connection = x
+  x = layers.MaxPooling2D(pool_size=pool_size)(x)
+
+  return x, skip_connection
+
+
+def unet_encoder(input_image, start_filters=64, num_levels=4):
+  skip_connections = []
+
+  # Downsampling encoder path
+  x = input_image
+  for level in range(num_levels):
+    num_filters = start_filters * 2**level
+    x, skip_connection = encoder_block(x, num_filters)
+    skip_connections.append(skip_connection)
+
+  return x, skip_connections
+
+# Example usage
+def encoder(img,num_filters) :
+  img=image.img_to_array(img)
+  unet_encoder(img,num_filters)

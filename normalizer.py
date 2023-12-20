@@ -1,6 +1,5 @@
 from keras.preprocessing import image
 import numpy as np
-import PIL
 
 def normalize_image(image_path):
   # Load image
