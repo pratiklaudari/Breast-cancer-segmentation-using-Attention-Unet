@@ -17,4 +17,5 @@ for i in dataset:
         mask.append(i)
 print(img)
 print(mask)
+
 #encoder_block.encoder(dataset_dir=dataset_dir,num_filters=num_filters)

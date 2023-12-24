@@ -37,3 +37,4 @@ def unet_encoder(input_image, start_filters=64, num_levels=4):
 def encoder(img,num_filters) :
   img=image.img_to_array(img)
   unet_encoder(img,num_filters)
+  
