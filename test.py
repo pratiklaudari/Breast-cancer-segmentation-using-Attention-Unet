@@ -1,9 +1,9 @@
-import encoder_block
+import normalizer
 from glob import glob as gb
 
 #dataset_dir=input("path to dataset")
 dataset=[]
-dataset_dir=r"C:\major\Breast-cancer-segmentation-using-Attention-Unet\images\benign\*.png"
+dataset_dir=r"C:\major\Breast-cancer-segmentation-using-Attention-Unet\images\normal\*.png"
 dataset=gb(dataset_dir)
 
 #num_filters=int(input("number of filters"))
@@ -15,7 +15,10 @@ for i in dataset:
         img.append(i)
     else:
         mask.append(i)
-print(img)
-print(mask)
+for i in img:
+    image_path=i
+    output_path=image_path.replace("images","normalized")
+    normalizer.normalize(image_path,output_path)
+
 
 #encoder_block.encoder(dataset_dir=dataset_dir,num_filters=num_filters)

@@ -20,7 +20,7 @@ def save_image(image_array, output_path):
 
   # Save the image to the desired path
   img.save(output_path)
-
-# Example usage
-normalized_image = normalize_image("C:/major/Breast-cancer-segmentation-using-Attention-Unet/images/normal/normal (1).png")
-save_image(normalized_image, "C:/Users/sapko/OneDrive/Pictures/example.png")
+#usage
+def normalize(image_path, output_path):
+  n=normalize_image(image_path)
+  save_image(n,output_path)
