@@ -10,7 +10,7 @@ def decoder_block(inputs, skip_connection, num_filters, use_batch_norm=True):
     x = layers.Conv2DTranspose(num_filters, kernel_size=2, strides=2, padding="same")(x)
 
     # Attention gate
-    x = attentation.att(x, skip_connection)  # Apply attention mechanism
+    x = attentation.att(x, skip_connection,num_filters)  # Apply attention mechanism
 
     # Concatenate with skip connection
     x = layers.concatenate([x, skip_connection])
