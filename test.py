@@ -3,7 +3,7 @@ from glob import glob as gb
 
 #dataset_dir=input("path to dataset")
 dataset=[]
-dataset_dir=r"C:\major\Breast-cancer-segmentation-using-Attention-Unet\images\normal\*.png"
+dataset_dir=r"C:\major\Breast-cancer-segmentation-using-Attention-Unet\images\benign\*.png"
 dataset=gb(dataset_dir)
 
 #num_filters=int(input("number of filters"))
