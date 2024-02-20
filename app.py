@@ -65,6 +65,7 @@ def classify_image():
     predicted_class = np.argmax(classification_prediction)
 
     return jsonify({'predicted_class': predicted_class})
+
 @app.route('/segment', methods=['POST'])
 def segment_image():
     if 'image_path' not in request.form:
