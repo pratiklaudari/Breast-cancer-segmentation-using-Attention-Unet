@@ -1,8 +1,9 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_file
 from keras.preprocessing import image
 import numpy as np
 from utils import normalize
 from keras.models import load_model
+from PIL import Image
 
 app = Flask(__name__, template_folder='website')
 
