@@ -1,24 +1,39 @@
-from flask import Flask, request, jsonify, render_template, send_file
+from flask import Flask, request, jsonify, send_file
 from keras.preprocessing import image
 import numpy as np
-from utils import normalize
 from keras.models import load_model, Model
 from PIL import Image
 
-app = Flask(__name__, template_folder='website')
 
-# Load the saved segmentation model
-segmentation_model = Model(inputs=[input_layer], outputs=[output_layer])
-segmentation_model.load_weights('C:\major\Breast-cancer-segmentation-using-Attention-Unet\dataset\Aunetresults1.keras')
+def normalize(image_path):
+    # Load image
+    img = image.load_img(image_path)
+    img_array = image.img_to_array(img)
 
-# Load the saved classification model
-classification_model = load_model('C:\major\Breast-cancer-segmentation-using-Attention-Unet\dataset\classification.keras')
+    # Normalize by subtracting mean and dividing by standard deviation
+    mean = np.average(img_array)
+    sd = np.std(img_array)
+    img_array -= mean
+    img_array /= sd
 
-@app.route('/')
-def home():
-   return render_template('index.html')
+    return img_array
+
+def save_image(image_array, output_path):
+    # Convert the image array back to PIL image format
+    img = image.array_to_img(image_array)
+
+    # Save the image to the desired path
+    img.save(output_path)
 
 app = Flask(__name__)
+
+
+segmentation_model = load_model(r'C:\Users\shrij\OneDrive\Desktop\Breastcancer\Flask.h5')
+
+classification_model = load_model('C:\major\Breast-cancer-segmentation-using-Attention-Unet\dataset\classification.keras')
+
+app = Flask(__name__)
+
 @app.route('/upload', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
@@ -28,7 +43,7 @@ def upload_image():
     image_path = f'upload_image/{image_file.filename}'
     image_file.save(image_path)
 
-    # Normalize the uploaded image
+    # Normalize the uploaded image (assuming the 'normalize' function is defined in 'utils')
     normalized_image_path = f'normalized_image/{image_file.filename}'
     normalize(image_path, normalized_image_path)
 
@@ -42,9 +57,8 @@ def process_image(image_path):
     img = image.load_img(image_path, target_size=(256, 256))
     img_array = image.img_to_array(img)
 
-    # Add additional processing steps here
-
     return img_array
+
 
 @app.route('/classify', methods=['POST'])
 def classify_image():
@@ -93,4 +107,4 @@ def segment_image():
 
 
 if __name__ == '__main__':
-   app.run()
+    app.run()
