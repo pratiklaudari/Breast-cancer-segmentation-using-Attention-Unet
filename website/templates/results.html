@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+    <header>
+        <h1>Breast Image Segmentation</h1>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </header>
+    <nav id="nav_bar">
+        <ul >
+            <li id="nav_item"><img src="{{ url_for('static', filename='images/logo.png') }}" style="height: 32px;"></li>
+            <li id="nav_item"><a href="https://github.com/pratiklaudari/Breast-cancer-segmentation-using-Attention-Unet"><img src="{{ url_for('static', filename='images/gh-logo.png') }}" style="height: 32px;"></a></li>
+        </ul>
+
+    </nav>
+    <section class="hero"><h2>Result Image</h2>
+    <img src="{{ url_for('static', filename='output/output.png') }}"></section>
+    <h3>This image is likely  calss {{cla}} with {{per}} percent confidence</h3>
+
+
+ <footer>
+        <p>&copy; THIS IS A FOOTER.</p>
+    </footer>
+</body>
+</html>

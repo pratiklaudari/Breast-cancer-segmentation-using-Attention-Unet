@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast cancer segmentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Breast Image Segmentation</h1>
+    </header>
+    <nav id="nav_bar">
+        <ul >
+            <li id="nav_item"><img src="{{ url_for('static', filename='images/logo.png') }}" style="height: 32px;"></li>
+            <li id="nav_item"><a href="https://github.com/pratiklaudari/Breast-cancer-segmentation-using-Attention-Unet"><img src="{{ url_for('static', filename='images/gh-logo.png') }}" style="height: 32px;"></a></li>
+        </ul>
+
+    </nav>
+    <main>
+        <section class="hero">
+            <h2>Upload your ultrasound</h2>
+            <p>and our ai algorithm will segment the Image</p>
+            <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Select image:</label>
+                <input type="file" id="file" name="file" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
+        </section>
+        
+    </main>
+    <section class="hero">
+        <h3> Example Images </h3>
+        <img src="{{ url_for('static', filename='images/fig1.png') }}" style="height: 256px;">
+        <img src="{{ url_for('static', filename='images/fig3.png') }}" style="height: 256px;">
+    </section>
+    <footer>
+        <p>&copy; THIS IS A FOOTER.</p>
+    </footer>
+</body>
+</html>
